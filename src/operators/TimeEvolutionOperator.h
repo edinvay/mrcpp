@@ -66,6 +66,8 @@ public:
     
     //Difficult to impliment:
     //int crop(double prec, double splitFac = 1.0, bool absPrec = true);
+
+    using MWOperator<D>::getOperatorMRA;  //otherwise it is protected
 };
 
 } // namespace mrcpp

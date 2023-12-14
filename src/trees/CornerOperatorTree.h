@@ -32,12 +32,17 @@ namespace mrcpp {
 
 class CornerOperatorTree final : public OperatorTree {
 public:
-    using OperatorTree::OperatorTree;
+    //using OperatorTree::OperatorTree;
+    //explicit CornerOperatorTree(const MultiResolutionAnalysis<2> &mra, double np, const std::string &name = "nn")
+    CornerOperatorTree(const MultiResolutionAnalysis<2> &mra, double np, const std::string &name = "nn")
+        : OperatorTree(mra, np, name) {
+        OperatorTree::bandWidth = bandWidth;
+    }
     CornerOperatorTree(const CornerOperatorTree &tree) = delete;
     CornerOperatorTree &operator=(const CornerOperatorTree &tree) = delete;
     ~CornerOperatorTree() override;
 
-    void calcBandWidth(double prec = -1.0);
+    void calcBandWidth(double prec = -1.0) override;
 
 //    BandWidth &getBandWidth() { return *this->bandWidth; }
 //    const BandWidth &getBandWidth() const { return *this->bandWidth; }

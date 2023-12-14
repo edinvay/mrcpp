@@ -39,14 +39,14 @@ public:
 
     double getNormPrecision() const { return this->normPrec; }
 
-    void calcBandWidth(double prec = -1.0);
+    virtual void calcBandWidth(double prec = -1.0);
     void clearBandWidth();
 
     void setupOperNodeCache();
     void clearOperNodeCache();
 
-    BandWidth &getBandWidth() { return *this->bandWidth; }
-    const BandWidth &getBandWidth() const { return *this->bandWidth; }
+    auto &getBandWidth() { return *this->bandWidth; }
+    const auto &getBandWidth() const { return *this->bandWidth; }
 
     OperatorNode &getNode(int n, int l) { return *nodePtrAccess[n][l]; }        ///< TODO: It has to be specified more.
                                                                                 ///< \b l is distance to the diagonal. 
@@ -54,6 +54,8 @@ public:
 
     void mwTransformDown(bool overwrite) override;
     void mwTransformUp() override;
+
+    using MWTree<2>::getNode;
 
 protected:
     const double normPrec;
@@ -65,6 +67,9 @@ protected:
     void getMaxTranslations(Eigen::VectorXi &maxTransl);
 
     std::ostream &print(std::ostream &o) const override;
+
+//private:
+//    BandWidth *bandWidth;
 };
 
 } // namespace mrcpp

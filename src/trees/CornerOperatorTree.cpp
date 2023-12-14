@@ -39,7 +39,7 @@ namespace mrcpp {
 CornerOperatorTree::~CornerOperatorTree() {
     clearOperNodeCache();
     clearBandWidth();
-    this->deleteRootNodes();
+    //this->deleteRootNodes();
 }
 
 
@@ -51,9 +51,10 @@ CornerOperatorTree::~CornerOperatorTree() {
  * 
  */ 
 void CornerOperatorTree::calcBandWidth(double prec) {
+    std::cout << "CornerOperatorTree::calcBandWidth(double prec)" << std::endl;
     if (this->bandWidth == nullptr) clearBandWidth();
-    this->bandWidth = new CornerBandWidth(getDepth());
-
+    this->bandWidth = static_cast<CornerBandWidth*>(new BandWidth(getDepth()));
+    
     VectorXi max_transl;
     getMaxTranslations(max_transl);
 
@@ -76,6 +77,12 @@ void CornerOperatorTree::calcBandWidth(double prec) {
         }
     }
     println(100, "\nOperator BandWidth" << *this->bandWidth);
+
+std::cout << "Where is the problem?" << std::endl;
+std::cout << "Type of *this->bandWidth: " << typeid(*this->bandWidth).name() << std::endl;
+std::cout << "Type of *this: " << typeid(*this).name() << std::endl;
+
+
 }
 
 

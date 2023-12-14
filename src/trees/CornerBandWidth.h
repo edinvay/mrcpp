@@ -41,10 +41,14 @@ namespace mrcpp {
  */
 class CornerBandWidth  final : public BandWidth {
 public:
-    explicit CornerBandWidth(int depth = 0) : BandWidth(depth) {}
+//    explicit CornerBandWidth(int depth = 0) : BandWidth(depth) {}
+/*
+    CornerBandWidth(int depth = 0) : BandWidth(depth) {}
     CornerBandWidth(const CornerBandWidth& other) : BandWidth(other) {}
-
-    bool isOutsideBand(int oTransl, int o_depth, int idx) const;
+    CornerBandWidth &operator=(const CornerBandWidth &bw) = default;
+    ~CornerBandWidth() = default;
+*/
+    bool isOutsideBand(int oTransl, int o_depth, int idx) const override;
 };
 
 
