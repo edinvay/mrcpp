@@ -70,6 +70,7 @@ protected:
     int oper_root;
     int oper_reach;
     MultiResolutionAnalysis<D> MRA;
+public:
     std::vector<std::array<OperatorTree *, D>> oper_exp;
     std::vector<std::unique_ptr<OperatorTree>> raw_exp;
     std::vector<int> band_max;

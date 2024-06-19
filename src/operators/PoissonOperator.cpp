@@ -52,6 +52,11 @@ PoissonOperator::PoissonOperator(const MultiResolutionAnalysis<3> &mra, double p
     this->initOperExp(kernel.size());
 
     Printer::setPrintLevel(oldlevel);
+
+    //Kernel Parameters:
+    std::cout << "k_prec = " << k_prec << std::endl;
+    std::cout << "r_min = " << r_min << std::endl;
+    std::cout << "r_max = " << r_max << std::endl;
 }
 
 PoissonOperator::PoissonOperator(const MultiResolutionAnalysis<3> &mra, double prec, int root, int reach)
