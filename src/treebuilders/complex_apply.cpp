@@ -111,6 +111,20 @@ void apply <1>
     ComplexObject< ConvolutionOperator<1> > &oper, ComplexObject< FunctionTree<1> > &inp,
     int maxIter, bool absPrec
 );
+template
+void apply <2>
+(
+    double prec, ComplexObject< FunctionTree<2> > &out,
+    ComplexObject< ConvolutionOperator<2> > &oper, ComplexObject< FunctionTree<2> > &inp,
+    int maxIter, bool absPrec
+);
+template
+void apply <3>
+(
+    double prec, ComplexObject< FunctionTree<3> > &out,
+    ComplexObject< ConvolutionOperator<3> > &oper, ComplexObject< FunctionTree<3> > &inp,
+    int maxIter, bool absPrec
+);
 
 
 } // namespace mrcpp
