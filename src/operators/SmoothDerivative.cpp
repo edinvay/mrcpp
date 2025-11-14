@@ -31,7 +31,7 @@ void SmoothDerivative<D>::initialize(double cut_off, int max_Jpower) {
     const double o_prec = this->build_prec;
     auto        o_mra   = this->getOperatorMRA();
 
-    auto o_tree = std::make_unique<CornerOperatorTree>(o_mra, o_prec);
+    auto o_tree = std::make_unique<OperatorTree>(o_mra, o_prec);
 
     // J^{(deriv)} power integrals per scale
     std::map<int, DerivativePowerIntegrals*> J;
